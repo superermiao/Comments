@@ -2,7 +2,7 @@ var webpack           = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 //环境变量配置 dev/online
-var WEBPACK_ENV       =process.env.WEBPACK_ENV || 'dev'//判断是线上还是开发环境
+var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';//判断是线上还是开发环境
 //存放多个不同的html页面,获取html页面参数的方法
 var getHtmlConfig = function(name){
     return {
@@ -21,7 +21,7 @@ var config= {
     },
     output: {
         path: './dist',//输出路径的根目录
-        publicePath:'/dist',
+        publicPath:'/dist',
         /* filename: '[name].js'*/
         filename: 'js/[name].js'//输出的文件名
     },
@@ -53,6 +53,15 @@ var config= {
             { test: /\.(jpg|png|gif|svg|ttf|woff|eot)$/, loader: 'url-loader?limit=8192&name=resource/[name].[ext]'},/*解析图片*/
         ]
     },
+    //配置一些其他参数，比如文件名引入
+    resolve:{
+        alias:{
+            util:__dirname+'/src/util',
+            page:__dirname+'/src/page',
+            service:__dirname+'/src/service',
+            image:__dirname+'/src/image',
+        }
+    }
 };
 if ('dev' === WEBPACK_ENV){
     config.entry.common.push('webpack-dev-server/client?http://localhost:8088/')

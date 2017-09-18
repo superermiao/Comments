@@ -4,7 +4,6 @@
   "description": "mall前端代码",
   "main": "index.js",
   "scripts": {
-
     "dev" : "set WEBPACK_ENV=dev && webpack-dev-server --inline --port 8088",
     "dist" : " set WEBPACK_ENV=online && webpack -p"
   },
