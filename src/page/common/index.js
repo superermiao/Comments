@@ -1,3 +1,3 @@
 'use strict'
 
-console.log('I am a global')
+require('./layout.css')

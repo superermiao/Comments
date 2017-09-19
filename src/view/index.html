@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <%= require('html-loader!./layout/CommonHead.html')%>
+    <title>supermall电商平台</title>
+</head><div>
+    <a class="link">test</a>
+    <a class="link-text">test</a>
+</div>
+<div>
+    <a class="btn">test</a>
+    <a class="btn btn-mini">test</a>
+</div>
+<div class="loading"></div>
 <body>
-hello
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<%= require('html-loader!./layout/CommonFoot.html')%>
 </body>
 </html>
