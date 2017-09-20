@@ -74,7 +74,7 @@ var super_mm={
     },
     //统一登录处理
     doLogin:function () {
-        window.location.href='./Login.html?redirect='+encodeURIComponent(window.location.href);
+        window.location.href='./user-login.html?redirect='+encodeURIComponent(window.location.href);
     },
     //回主页
     goHome:function () {

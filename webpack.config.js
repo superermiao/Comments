@@ -17,7 +17,7 @@ var config= {
     entry: {
         'common':['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],//入口文件可以有不同的
-        'login': ['./src/page/login/index.js']
+        'login': ['./src/page/user-login/index.js']
     },
     output: {
         path: './dist',//输出路径的根目录
@@ -36,9 +36,10 @@ var config= {
         //css单独打包到文件里
         new ExtractTextPlugin("css/[name].css"),//[name]相当于一个变量
         //html模版处理
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        //login.html
-        new HtmlWebpackPlugin(getHtmlConfig('login')),
+        new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
+        //user-login.html
+        new HtmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
+      /*  new HtmlWebpackPlugin(getHtmlConfig('result','操作结果')),*/
        /* new HtmlWebpackPlugin({
             template : './src/view/login.html',
             filename : 'view/login.html',
@@ -50,16 +51,17 @@ var config= {
     module: {
         loaders: [
             { test: /\.css$/, loader:  ExtractTextPlugin.extract("style-loader","css-loader") },
-            { test: /\.(jpg|png|gif|svg|ttf|woff|eot)$/, loader: 'url-loader?limit=8192&name=resource/[name].[ext]'},/*解析图片*/
+            { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192&name=resource/[name].[ext]'},/*解析图片*/
         ]
     },
     //配置一些其他参数，比如文件名引入
     resolve:{
         alias:{
-            util:__dirname+'/src/util',
-            page:__dirname+'/src/page',
-            service:__dirname+'/src/service',
-            image:__dirname+'/src/image',
+            util          : __dirname+'/src/util',
+            page          : __dirname+'/src/page',
+            service       : __dirname+'/src/service',
+            image         : __dirname+'/src/image',
+            node_modules : __dirname+'/node_modules',
         }
     }
 };
