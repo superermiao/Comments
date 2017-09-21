@@ -4,7 +4,7 @@ var conf={
     serverHost:'',
 };
 var super_mm={
-    //网络请求
+    //网络请求的方法
     request  : function (param) {
         var _this=this;
         $.ajax({
